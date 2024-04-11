@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Song Search</title>
+  <style>
+    .song-item {
+      display: flex;
+      margin-bottom: 20px;
+    }
+    .song-item img {
+      width: 100px;
+      height: auto;
+      margin-right: 20px;
+    }
+    .song-info p {
+      margin: 0;
+    }
+    .play-button {
+      margin-left: 10px;
+      cursor: pointer;
+    }
+    .audio-player {
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Song Search</h1>
+  <div>
+    <input type="text" id="query" placeholder="Enter song name or artist">
+    <button id="search-button">Search</button>
+  </div>
+  <div id="song-list"></div>
+
+  <div class="audio-player">
+    <audio id="audio" controls>
+      Your browser does not support the audio element.
+    </audio>
+  </div>
+
+  <script src="script.js">
+    // JavaScript code here
+  </script>
+</body>
+</html>
+
