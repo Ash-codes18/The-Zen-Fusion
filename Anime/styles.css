@@ -1,6 +1,6 @@
 /* General design */
 body {
-  background-color: #282a36;
+  background-color: hsla(220, 17%, 7%, 1);
   color: #fff;
   font-family: 'Roboto', sans-serif;
   overflow-y: auto;
@@ -12,9 +12,33 @@ body {
   border-radius: 10px; 
 }
 
+
+.header{
+	position: relative;
+	padding: 24px 16px;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 8px;
+}
+
+.navigation{
+	margin-right: 50px;
+	justify-content: center;
+	align-items: center;
+}
+
+
+.header .logo {
+	margin-inline-end: auto;
+}
+
+
+
+
 /* search section design */
 .search-section {
-  background-color: #282a36;
+  background-color: hsla(220, 17%, 7%, 1);
   padding: 20px 0;
   border-radius: 10px; 
 }
@@ -32,17 +56,17 @@ body {
 }
 
 h2 {
-  color: #ff69b4;
+  color: #0D6EFD;
   font-weight: 500;
 }
 
 .header-wrapper {
-  background: #FF6EC7;
+  background: #1b68da;
   padding: 10px 20px;
   border-radius: 10px;
 }
 
-.logo-container {
+/* .logo-container {
   display: flex;
   align-items: center;
 }
@@ -51,15 +75,15 @@ h2 {
   width: 60px; 
   height: auto; 
   margin-right: 5px;
-}
+} */
 
-.logo {
+/* .logo {
   font-family: Elephant, sans-serif;
   font-size: 24px;
   font-weight: 500;
   color: #fff;
   text-decoration: none;
-}
+} */
 
 a {
   text-decoration: none;
@@ -117,7 +141,7 @@ a {
 }
 
 input:checked + .slider {
-  background-color: #ff69b4;
+  background-color: #0D6EFD;
 }
 
 input:focus + .slider {
@@ -146,7 +170,7 @@ input:checked + .slider:before {
 /* anime description design */
 .anime-description,
 .anime-image {
-  background-color: #162032;
+  background-color: hsla(220, 17%, 7%, 1);
   padding: 15px;
   border-radius: 8px;
   max-height: 100%;
@@ -171,7 +195,7 @@ input:checked + .slider:before {
 
 /* search & button design */
 .search-section {
-  background-color: #282a36;
+  background-color: hsla(220, 17%, 7%, 1);
   padding: 20px 0;
   border-radius: 10px;
 }
@@ -200,7 +224,7 @@ button[type="submit"] {
   padding: 10px 20px;
   border: none;
   border-radius: 0 10px 10px 0;
-  background-color: #ff69b4;
+  background-color: #0D6EFD;
   color: #fff;
   font-size: 16px;
   cursor: pointer;
@@ -208,7 +232,7 @@ button[type="submit"] {
 }
 
 button[type="submit"]:hover {
-  background-color: #ff1493;
+  background-color: #1b68da;
   transform: scale(1.05);
 }
 
@@ -251,7 +275,7 @@ button[type="submit"]:hover {
 
 .spinner {
   border: 8px solid #f3f3f3;
-  border-top: 8px solid #ff69b4;
+  border-top: 8px solid #0D6EFD;
   border-radius: 50%;
   width: 60px;
   height: 60px;
@@ -300,7 +324,7 @@ button[type="submit"]:hover {
 /* episode design */
 .current-ep {
   display: inline-block;
-  outline: 2px solid #f06292; 
+  outline: 2px solid #2361c0; 
   color: #fff;
   border-radius: 5px;
   text-decoration: none;
@@ -327,7 +351,7 @@ button[type="submit"]:hover {
 }
 
 .episode-button {
-  background-color: #f06292;
+  background-color: #2c7cf6;
   border: none;
   border-radius: 5px;
   color: #fff;
@@ -340,22 +364,22 @@ button[type="submit"]:hover {
 
 .episode-button:hover {
   background-color: transparent;
-  outline: 2px solid #f06292; 
+  outline: 2px solid #2c7cf6; 
 }
 
 .episode-button:disabled {
-  background-color: #f8bbd0;
+  background-color: #65a3ff;
   cursor: not-allowed;
 }
 
 .episode-button:disabled:hover {
-  background-color: #f8bbd0;
+  background-color: ##65a3ff;
 }
 
 /* anime detail design */
 .episode {
   display: block;
-  background-color: #f06292;
+  background-color: #2c7cf6;
   color: #fff;
   border-radius: 5px;
   text-decoration: none;
@@ -367,8 +391,8 @@ button[type="submit"]:hover {
 
 .episode:hover {
   background-color: transparent;
-  color: #f06292;
-  outline: 2px solid #f06292;
+  color: #2c7cf6;
+  outline: 2px solid #2c7cf6;
 }
 
 .current-ep {
@@ -378,7 +402,7 @@ button[type="submit"]:hover {
 
 /* footer design or style */
 footer {
-  /*background: linear-gradient(90deg, #ff69b4, #ff1493);*/
+  /*background: linear-gradient(90deg, #0D6EFD, #1b68da);*/
   background-color: transparent;
   padding: 10px 20px;
   text-align: center;
@@ -403,7 +427,7 @@ footer {
 }
 
 .episode-list {
-  background-color: #162032;
+  background-color: #213354;
   padding: 20px 30px;
   border-radius: 10px;
   margin-top: 20px;
@@ -424,7 +448,7 @@ footer {
 }
 
 .pagination button {
-  background-color: #f06292;
+  background-color: #2c7cf6;
   border: none;
   border-radius: 5px;
   color: #fff;
@@ -436,16 +460,16 @@ footer {
 }
 
 .pagination button:hover {
-  background-color: #e91e63;
+  background-color: #05439f;
 }
 
 .pagination button:disabled {
-  background-color: #f8bbd0;
+  background-color: #65a3ff;
   cursor: not-allowed;
 }
 
 .pagination button:disabled:hover {
-  background-color: #f8bbd0;
+  background-color: #65a3ff;
 }
 
 .hidden {
@@ -476,17 +500,17 @@ footer {
 }
 
 ::-webkit-scrollbar-track {
-    background: #f06292;
+    background: #2470e1;
     border-radius: 5px;
 }
 
 ::-webkit-scrollbar-thumb {
-    background: #e63772;
+    background: #05439f;
     border-radius: 5px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-    background: #a0375a;
+    background: #1d4786;
 }
 
 @media (max-height: 300px) {
@@ -512,7 +536,7 @@ footer {
 }
 
 .anime-image {
-  background-color: #162032;
+  background-color: hsla(220, 17%, 7%, 1);
   padding: 15px;
   border-radius: 8px;
   max-height: 100%;
@@ -520,7 +544,7 @@ footer {
   padding-bottom: 40px;
   margin: 30px;
   position: relative;
-  outline: 2px solid #f06292; 
+  outline: 2px solid #1b64d2; 
 }
 
 #anime-title {
@@ -568,7 +592,7 @@ footer {
 }
 
 #anime-genres span {
-  background-color: #f06292;
+  background-color: #2361c0;
   color: #fff; 
   padding: 8px 15px;
   border-radius: 5px;
@@ -579,13 +603,13 @@ footer {
 
 #anime-genres span:hover {
   background-color: transparent; 
-  color: #f06292;
-  outline: 2px solid #f06292; 
+  color: #2361c0;
+  outline: 2px solid #2361c0; 
 }
 
 .pagination-button {
   display: inline-block;
-  background-color: #f06292;
+  background-color: #2361c0;
   color: #fff;
   border: none;
   border-radius: 5px;
@@ -597,16 +621,16 @@ footer {
 }
 
 .pagination-button:hover {
-  background-color: #e91e63;
+  background-color: #184d9c;
 }
 
 .pagination-button:disabled {
-  background-color: #f8bbd0;
+  background-color: #65a3ff;
   cursor: not-allowed;
 }
 
 .pagination-button:disabled:hover {
-  background-color: #f8bbd0;
+  background-color: #65a3ff;
 }
 
 /* Episode dropdown design */
@@ -622,7 +646,7 @@ footer {
   width: 150%; 
   padding: 10px;
   font-size: 16px;
-  border: 2px solid #e91e63;
+  border: 2px solid #184d9c;
   border-radius: 15px; 
   background-color: #fff;
   color: #333; /* Default text color */
@@ -637,7 +661,7 @@ footer {
 .custom-dropdown:focus {
   background-color: #282a36;
   color: #fff; /* Changing text color for better visibility on hover/focus */
-  border-color: #f06292 /* Change border color for a noticeable effect */
+  border-color: #2361c0 /* Change border color for a noticeable effect */
 }
 
 .dropdown-open {

@@ -44,11 +44,11 @@ body .loading .spinner {
 }
 
 a {
-    color: #d5015b
+    color: #0D6EFD
 }
 
 a:not([href]):not([tabindex]) {
-    color: #d5015b
+    color: #0D6EFD
 }
 
 a:hover,a:focus {
@@ -185,12 +185,12 @@ ul.pagination {
 
 ul.pagination li.page-item a,ul.pagination li.page-item>span {
     background-color: #222;
-    color: #d5015b;
+    color: #0D6EFD;
     border: 1px solid #000
 }
 
 ul.pagination li.page-item.active a,ul.pagination li.page-item.active>span,ul.pagination li.page-item.active.disabled a,ul.pagination li.page-item.active.disabled>span {
-    background-color: #d5015b;
+    background-color: #0D6EFD;
     color: #fff;
     border: 1px solid #000
 }
@@ -198,7 +198,7 @@ ul.pagination li.page-item.active a,ul.pagination li.page-item.active>span,ul.pa
 ul.pagination li.page-item.disabled a,ul.pagination li.page-item.disabled>span {
     cursor: not-allowed;
     background-color: #111;
-    color: #a20145;
+    color: #0c52bb;
     border: 1px solid #000
 }
 
@@ -283,7 +283,7 @@ header.main-header nav .navbar-nav li.nav-item.dropdown .dropdown-menu a {
 }
 
 header.main-header nav .navbar-nav li.nav-item.dropdown .dropdown-menu a:hover,header.main-header nav .navbar-nav li.nav-item.dropdown .dropdown-menu a.active {
-    background-color: #d5015b
+    background-color: #0D6EFD
 }
 
 header.main-header nav .navbar-nav li.nav-item.dropdown .dropdown-menu .dropdown-divider {
@@ -302,12 +302,12 @@ header.main-header nav .main-nav li.nav-item>a {
 
 header.main-header nav .main-nav li.nav-item>a:hover {
     color: #fff;
-    background-color: #bc0150
+    background-color: #1359c2
 }
 
 header.main-header nav .main-nav li.nav-item.active>a,header.main-header nav .main-nav li.nav-item.show>a {
     color: #fff;
-    background-color: #bc0150
+    background-color: #1359c2
 }
 
 header.main-header nav .account-nav {
@@ -346,7 +346,7 @@ header.main-header nav ul.nav-menu li {
     position: relative;
     list-style: none;
     margin: 0;
-    background-color: #bc0150
+    background-color: #0c52bb
 }
 
 header.main-header nav ul.nav-menu li.open ul {
@@ -367,7 +367,7 @@ header.main-header nav ul.nav-menu li ul li {
 
 header.main-header nav ul.nav-menu li.looks-like-a-sub a {
     padding: 8px 15px;
-    background-color: #bc0150
+    background-color: #0c52bb
 }
 
 header.main-header nav ul.nav-menu li a {
@@ -382,7 +382,7 @@ header.main-header nav .nav-search {
 
 header.main-header nav .nav-search.active .input-search {
     color: #111;
-    border-color: #bc0150;
+    border-color: #0c52bb;
     outline: none;
     width: 400px
 }
@@ -482,7 +482,7 @@ header.main-header nav .nav-search .search-results-wrap .search-results li div.r
 }
 
 header.main-header nav .nav-search .search-results-wrap .search-results li.selected {
-    background-color: #d5015b
+    background-color: #0D6EFD
 }
 
 header.main-header nav .nav-search .search-results-wrap .search-results li:hover div.result-title,header.main-header nav .nav-search .search-results-wrap .search-results li:hover div.result-status,header.main-header nav .nav-search .search-results-wrap .search-results li:hover div.result-season {
@@ -494,7 +494,7 @@ header.main-header nav .nav-search .search-results-wrap .adv-search {
 }
 
 header.main-header nav .nav-search .search-results-wrap .adv-search:hover {
-    color: #d5015b
+    color: #0D6EFD
 }
 
 header.main-header nav .nav-search .search-results-wrap .no-results {
@@ -521,7 +521,7 @@ header.main-header .notification-header {
     position: absolute;
     color: #fff;
     z-index: 2;
-    background-color: #d5015b;
+    background-color: #0D6EFD;
     width: 100%;
     padding: 3px 0;
     text-align: center
@@ -749,7 +749,7 @@ section.main .content-wrapper nav.anime-nav ul li a {
 }
 
 section.main .content-wrapper nav.anime-nav ul li a:hover {
-    color: #d5015b;
+    color: #0D6EFD;
     -webkit-transition: all .2s ease 0s;
     -moz-transition: all .2s ease 0s;
     transition: all .2s ease 0s
@@ -774,7 +774,7 @@ section.main .content-wrapper nav.anime-nav ul li.active:before {
     bottom: 0;
     width: 100%;
     height: 2px;
-    background-color: #d5015b
+    background-color: #0D6EFD;
 }
 
 section.main .content-wrapper .anime-content {
@@ -836,7 +836,7 @@ section.main .content-wrapper .anime-content .anime-detail .anime-info .anime-ge
 }
 
 section.main .content-wrapper .anime-content .anime-detail .anime-info .anime-genre ul li:hover {
-    background-color: #d5015b;
+    background-color: #0D6EFD;
     -webkit-transition: background-color .1s ease-in;
     -moz-transition: background-color .1s ease-in;
     transition: background-color .1s ease-in
@@ -846,7 +846,7 @@ section.main .content-wrapper .anime-content .anime-detail .anime-info .anime-ge
     position: relative;
     top: 0;
     display: block;
-    color: #d5015b;
+    color: #0D6EFD;
     background-color: #222;
     padding: 1px 6px;
     border-radius: 2px;
@@ -858,7 +858,7 @@ section.main .content-wrapper .anime-content .anime-detail .anime-info .anime-ge
 
 section.main .content-wrapper .anime-content .anime-detail .anime-info .anime-genre ul li a:hover {
     top: -2px;
-    border: 1px solid #d5015b;
+    border: 1px solid #0D6EFD;
     -webkit-transition: all .1s ease-in;
     -moz-transition: all .1s ease-in;
     transition: all .1s ease-in
@@ -870,8 +870,8 @@ section.main .content-wrapper .anime-content .anime-detail .anime-info .anime-ge
     -moz-transition: all 0s ease;
     transition: all 0s ease;
     color: #222;
-    background-color: #d5015b;
-    border: 1px solid #d5015b
+    background-color: #0D6EFD;
+    border: 1px solid #0D6EFD;
 }
 
 section.main .content-wrapper .anime-content .anime-relation,section.main .content-wrapper .anime-content .anime-recommendation {
@@ -894,7 +894,7 @@ section.main .content-wrapper .anime-content .anime-relation h4,section.main .co
 
 section.main .content-wrapper .anime-content .anime-relation h4 span,section.main .content-wrapper .anime-content .anime-recommendation h4 span {
     display: inline-block;
-    border-bottom: 2px solid #d5015b;
+    border-bottom: 2px solid #0D6EFD;
     padding: .1rem 0;
     margin: 0 0 -1px
 }
@@ -921,7 +921,7 @@ section.main .content-wrapper .anime-content .anime-relation h5,section.main .co
 }
 
 section.main .content-wrapper .anime-content .anime-relation h5 a:hover,section.main .content-wrapper .anime-content .anime-recommendation h5 a:hover {
-    color: #d5015b;
+    color: #0D6EFD;
     text-decoration: none
 }
 
@@ -973,8 +973,8 @@ section.main .content-wrapper .page-index .advanced-filter .kakkoii-checkbox inp
 }
 
 section.main .content-wrapper .page-index .advanced-filter .kakkoii-checkbox input[type=checkbox]:checked+label {
-    color: #d5015b;
-    border-color: #d5015b
+    color: #0D6EFD;
+    border-color: #0D6EFD;
 }
 
 section.main .content-wrapper .page-index .advanced-filter .kakkoii-checkbox label {
@@ -1034,7 +1034,7 @@ section.main .content-wrapper .index-wrapper .index .scrollable-ul ul .nav-item 
 }
 
 section.main .content-wrapper .index-wrapper .index .scrollable-ul ul .nav-item a.active {
-    background-color: #d5015b
+    background-color: #0D6EFD
 }
 
 section.main .content-wrapper .index-wrapper .index .tab-content {
@@ -1395,12 +1395,12 @@ section.main .content-wrapper .theatre .theatre-settings .dropdown .dropdown-men
 }
 
 section.main .content-wrapper .theatre .theatre-settings .dropdown .dropdown-menu .dropdown-item:hover,section.main .content-wrapper .theatre .theatre-settings .dropup .dropdown-menu .dropdown-item:hover {
-    background-color: #d5015b;
+    background-color: #0D6EFD;
     color: #eee
 }
 
 section.main .content-wrapper .theatre .theatre-settings .dropdown .dropdown-menu .dropdown-item.active,section.main .content-wrapper .theatre .theatre-settings .dropup .dropdown-menu .dropdown-item.active {
-    background-color: #d5015b;
+    background-color: #0D6EFD;
     color: #eee
 }
 
@@ -1625,7 +1625,7 @@ section.main .content-wrapper .episode-list-wrapper .episode-list .episode-wrap 
 section.main .content-wrapper .episode-list-wrapper .episode-list .episode-wrap .episode-snapshot .episode-new {
     left: 0;
     color: #fff;
-    background-color: #d5015b;
+    background-color: #0D6EFD;
     text-shadow: 0 1px 0 rgba(0,0,0,.25)
 }
 
@@ -1685,9 +1685,9 @@ section.main .content-wrapper .episode-list-wrapper .episode-list .episode-wrap 
     background: -moz-linear-gradient(top,rgba(0,0,0,0) 70%,rgba(0,0,0,0.75) 100%);
     background: -webkit-linear-gradient(top,rgba(0,0,0,0) 70%,rgba(0,0,0,0.75) 100%);
     background: linear-gradient(to bottom,rgba(0,0,0,0) 70%,rgba(0,0,0,0.75) 100%);
-    -moz-box-shadow: inset 0 0 0 0 #d5015b;
-    -webkit-box-shadow: inset 0 0 0 0 #d5015b;
-    box-shadow: inset 0 0 0 0 #d5015b;
+    -moz-box-shadow: inset 0 0 0 0 #0D6EFD;
+    -webkit-box-shadow: inset 0 0 0 0 #0D6EFD;
+    box-shadow: inset 0 0 0 0 #0D6EFD;
     -webkit-transition: all .2s ease 0s;
     -moz-transition: all .2s ease 0s;
     transition: all .2s ease 0s
@@ -1767,7 +1767,7 @@ section.main .content-wrapper .episode-list-wrapper .episode-list .episode-wrap 
 section.main .content-wrapper .episode-list-wrapper .episode-list .episode-wrap .episode-watch a {
     display: block;
     text-align: center;
-    border: 1px solid #d5015b;
+    border: 1px solid #0D6EFD;
     border-radius: 5px;
     background-color: transparent;
     -webkit-transition: all .2s ease 0s;
@@ -1777,7 +1777,7 @@ section.main .content-wrapper .episode-list-wrapper .episode-list .episode-wrap 
 
 section.main .content-wrapper .episode-list-wrapper .episode-list .episode-wrap .episode-watch a:hover {
     color: #222;
-    background-color: #d5015b;
+    background-color: #0D6EFD;
     -webkit-transition: all .2s ease 0s;
     -moz-transition: all .2s ease 0s;
     transition: all .2s ease 0s
@@ -1800,7 +1800,7 @@ section.main .content-wrapper .episode-list-wrapper .episode-list .zoom-helper {
 }
 
 .alert.alert-top {
-    background-color: #d5015b;
+    background-color: #0D6EFD;
     color: #fff;
     border: 0;
     border-radius: 0;
@@ -1840,7 +1840,7 @@ section.main .content-wrapper .episode-list-wrapper .episode-list .zoom-helper {
         top: 0;
         left: -100%;
         bottom: 0;
-        border-top: 4px solid #d5015b;
+        border-top: 4px solid #0D6EFDy;
         width: 270px;
         height: 100%;
         background-color: #000;
