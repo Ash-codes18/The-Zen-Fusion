@@ -297,8 +297,9 @@ body {
 }
 
 .navigation{
-	display: inline-flex;
-	flex-direction: column;
+	margin-right: 50px;
+	justify-content: center;
+	align-items: center;
 }
 
 
