@@ -314,6 +314,12 @@ body {
 	background-color: var(--banner-background);
 	border-radius: var(--radius-8);
 }
+
+.current-page{
+    border-bottom: solid 2px #e2d9d9;
+
+}
+
 .search-btn img {
 	opacity: 0.5;
 	transition: var(--transition-short);

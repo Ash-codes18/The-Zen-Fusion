@@ -362,6 +362,11 @@ button[type="submit"]:hover {
   pointer-events: all;
 }
 
+.current-page{
+  border-bottom: solid 2px #e2d9d9;
+
+}
+
 .episode-button:hover {
   background-color: transparent;
   outline: 2px solid #2c7cf6; 
