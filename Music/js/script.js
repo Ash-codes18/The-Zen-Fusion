@@ -20,8 +20,8 @@ function secondsToMinutesSeconds(seconds) {
     return `${formattedMinutes}:${formattedSeconds}`;
 }
 
-async function fetchSongs(query) {
-    const apiUrl = `https://music-api-sigma-one.vercel.app/api/search/songs?query=${query}`;
+async function fetchSongs(query, page) {
+    const apiUrl = `https://saavn.dev/api/search/songs?query=${query}&page=${page}`;
     try {
         const response = await fetch(apiUrl);
         const data = await response.json();
@@ -45,12 +45,18 @@ async function fetchSongs(query) {
     }
 }
 
-async function displaySongs(query = 'top+hits') {
-    songs = await fetchSongs(query);
-    const cardContainer = document.querySelector(".cardContainer");
-    cardContainer.innerHTML = '';
 
-    songs.forEach(song => {
+async function displaySongs(query = 'top+hits', page = 1) {
+    const newSongs = await fetchSongs(query, page);
+    if (page === 1) {
+        // Clear the existing card container only when displaying the first page of results
+        const cardContainer = document.querySelector(".cardContainer");
+        cardContainer.innerHTML = '';
+    }
+
+    // Display songs on the UI
+    const cardContainer = document.querySelector(".cardContainer");
+    newSongs.forEach(song => {
         const card = document.createElement("div");
         card.classList.add("card");
         card.innerHTML = `
@@ -59,7 +65,7 @@ async function displaySongs(query = 'top+hits') {
                     <path d="M5 20V4L19 12L5 20Z" stroke="#141B34" fill="#000" stroke-width="1.5" stroke-linejoin="round"/>
                 </svg>
             </div>
-            <img src="${song.thumbnail}" alt="">
+            <img src="${song.thumbnail}" alt="song-poster">
             <div class="songDetails">
                 <h2>${song.name}</h2>
                 <p>${song.artists.slice(0, 2).join(', ')}</p>
@@ -75,14 +81,26 @@ async function displaySongs(query = 'top+hits') {
     });
 }
 
+async function loadMore() {
+    const searchField = document.getElementById("searchfield");
+    const query = searchField.value.trim();
+    if (query.length > 0) {
+        currentPage++;
+        await displaySongs(query, currentPage);
+    } else {
+        currentPage++;
+        await displaySongs('top+hits', currentPage);
+    }
+}
+
+
+
 const playMusic = (song) => {
     currentSong.src = song.downloadUrl;
     currentSong.play();
     document.querySelector(".songinfo").innerHTML = song.name;
     document.querySelector(".songtime").innerHTML = "00:00 / " + secondsToMinutesSeconds(song.duration);
-
     play.src = "img/pause.svg";
-
 }
 
 async function main() {
@@ -92,8 +110,12 @@ async function main() {
     searchField.addEventListener("input", async (event) => {
         const query = event.target.value.trim();
         if (query.length > 0) {
-            await displaySongs(query);
+            currentPage = 1; // Reset current page when a new search query is entered
+            songs = []; // Clear previous songs
+            await displaySongs(query, currentPage);
         } else {
+            currentPage = 1; // Reset current page when the search query is empty
+            songs = []; // Clear previous songs
             await displaySongs();
         }
     });
@@ -141,8 +163,6 @@ async function main() {
         document.querySelector(".circle").style.left = (currentSong.currentTime / currentSong.duration) * 100 + "%";
     });
 
-
-
     // Listen for the 'ended' event on the currentSong audio element
     currentSong.addEventListener('ended', () => {
         // Check if there are more songs in the playlist
@@ -151,14 +171,11 @@ async function main() {
             playMusic(songs[currentSongIndex + 1]);
             currentSongIndex++;
         } else {
-            // If the last song in the playlist has ended, play the first song
-            playMusic(songs[0]);
-            currentSongIndex = 0;
+            // If the last song in the playlist has ended, fetch the next page of songs
+            currentPage++;
+            displaySongs('top+hits', currentPage);
         }
     });
-
-
-
 
     // Add an event listener for seek bar
     document.querySelector(".seekbar").addEventListener("click", (e) => {
@@ -166,15 +183,14 @@ async function main() {
         currentSong.currentTime = seekPosition;
     });
 
-
     document.querySelector(".hamburger").addEventListener("click", () => {
         document.querySelector(".left").style.left = "0"
-    })
+    });
 
     // Add an event listener for close button
     document.querySelector(".close").addEventListener("click", () => {
         document.querySelector(".left").style.left = "-120%"
-    })
+    });
 
     // Add an event listener for volume
     document.querySelector(".range").getElementsByTagName("input")[0].addEventListener("change", (e) => {
@@ -185,7 +201,7 @@ async function main() {
         }
     });
 
-    // Add event listener to mute the track 
+    // Add event listener to mute the track
     document.querySelector(".volume>img").addEventListener("click", e => {
         if (e.target.src.includes("volume.svg")) {
             e.target.src = e.target.src.replace("volume.svg", "mute.svg")
@@ -197,6 +213,8 @@ async function main() {
             document.querySelector(".range").getElementsByTagName("input")[0].value = 10;
         }
     });
+
+    document.getElementById("loadMoreBtn").addEventListener("click", loadMore);
 }
 
 main();
