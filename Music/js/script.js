@@ -117,13 +117,23 @@ async function main() {
     currentSong.addEventListener("timeupdate", () => {
         document.querySelector(".songtime").innerHTML = `${secondsToMinutesSeconds(currentSong.currentTime)} / ${secondsToMinutesSeconds(currentSong.duration)}`
         document.querySelector(".circle").style.left = (currentSong.currentTime / currentSong.duration) * 100 + "%";
-    });
+    });3    
 
     // Add an event listener for seek bar
     document.querySelector(".seekbar").addEventListener("click", (e) => {
         const seekPosition = (e.offsetX / e.target.offsetWidth) * currentSong.duration;
         currentSong.currentTime = seekPosition;
     });
+
+
+    document.querySelector(".hamburger").addEventListener("click", () => {
+        document.querySelector(".left").style.left = "0"
+    })
+
+    // Add an event listener for close button
+    document.querySelector(".close").addEventListener("click", () => {
+        document.querySelector(".left").style.left = "-120%"
+    })
 
     // Add an event listener for volume
     document.querySelector(".range").getElementsByTagName("input")[0].addEventListener("change", (e) => {

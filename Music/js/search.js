@@ -10,10 +10,10 @@ search.addEventListener('click', function() {
 });
 
 
-inputbox.addEventListener('blur', function() {
-    if (!this.value.trim()) {
-        searchbox.style.display = 'none';
-    }
-});
+// inputbox.addEventListener('blur', function() {
+//     if (!this.value.trim()) {
+//         searchbox.style.display = 'none';
+//     }
+// });
 
 
