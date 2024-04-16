@@ -2,6 +2,9 @@ console.log('Lets write JavaScript');
 let currentSong = new Audio();
 let currFolder;
 let songs = [];
+let currentPage = 1; // Track the current page number
+const songsPerPage = 10;
+let currentSongIndex = -1; // Initialize index to -1
 
 function secondsToMinutesSeconds(seconds) {
     if (isNaN(seconds) || seconds < 0) {
@@ -57,13 +60,17 @@ async function displaySongs(query = 'top+hits') {
                 </svg>
             </div>
             <img src="${song.thumbnail}" alt="">
-            <h2>${song.name}</h2>
-            <p>${song.artists.join(', ')}</p>
+            <div class="songDetails">
+                <h2>${song.name}</h2>
+                <p>${song.artists.slice(0, 2).join(', ')}</p>
+                <p>${song.year} | ${secondsToMinutesSeconds(song.duration)}</p>
+            </div>
         `;
         cardContainer.appendChild(card);
 
         card.addEventListener("click", () => {
             playMusic(song);
+            currentSongIndex = songs.findIndex(s => s.name === song.name); // Update current song index
         });
     });
 }
@@ -73,6 +80,9 @@ const playMusic = (song) => {
     currentSong.play();
     document.querySelector(".songinfo").innerHTML = song.name;
     document.querySelector(".songtime").innerHTML = "00:00 / " + secondsToMinutesSeconds(song.duration);
+
+    play.src = "img/pause.svg";
+
 }
 
 async function main() {
@@ -103,21 +113,52 @@ async function main() {
     previous.addEventListener("click", () => {
         currentSong.pause();
         console.log("Previous clicked");
-        // Implement logic to play the previous song
+        if (currentSongIndex > 0) {
+            playMusic(songs[currentSongIndex - 1]);
+            currentSongIndex--;
+        } else if (currentSongIndex === 0) {
+            playMusic(songs[songs.length - 1]); // Play the last song if currently playing the first song
+            currentSongIndex = songs.length - 1;
+        }
     });
 
     // Add event listener to next
     next.addEventListener("click", () => {
         currentSong.pause();
         console.log("Next clicked");
-        // Implement logic to play the next song
+        if (currentSongIndex < songs.length - 1) {
+            playMusic(songs[currentSongIndex + 1]);
+            currentSongIndex++;
+        } else if (currentSongIndex === songs.length - 1) {
+            playMusic(songs[0]); // Play the first song if currently playing the last song
+            currentSongIndex = 0;
+        }
     });
 
     // Listen for timeupdate event
     currentSong.addEventListener("timeupdate", () => {
         document.querySelector(".songtime").innerHTML = `${secondsToMinutesSeconds(currentSong.currentTime)} / ${secondsToMinutesSeconds(currentSong.duration)}`
         document.querySelector(".circle").style.left = (currentSong.currentTime / currentSong.duration) * 100 + "%";
-    });3    
+    });
+
+
+
+    // Listen for the 'ended' event on the currentSong audio element
+    currentSong.addEventListener('ended', () => {
+        // Check if there are more songs in the playlist
+        if (currentSongIndex < songs.length - 1) {
+            // Play the next song
+            playMusic(songs[currentSongIndex + 1]);
+            currentSongIndex++;
+        } else {
+            // If the last song in the playlist has ended, play the first song
+            playMusic(songs[0]);
+            currentSongIndex = 0;
+        }
+    });
+
+
+
 
     // Add an event listener for seek bar
     document.querySelector(".seekbar").addEventListener("click", (e) => {
@@ -144,7 +185,7 @@ async function main() {
         }
     });
 
-    // Add event listener to mute the track
+    // Add event listener to mute the track 
     document.querySelector(".volume>img").addEventListener("click", e => {
         if (e.target.src.includes("volume.svg")) {
             e.target.src = e.target.src.replace("volume.svg", "mute.svg")
