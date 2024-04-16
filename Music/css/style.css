@@ -191,11 +191,11 @@ input{
     padding: 20px;
 }
 
-.spotifyPlaylists {
+.zenfusionPlaylists {
     padding: 16px;
 }
 
-.spotifyPlaylists h1 {
+.zenfusionPlaylists h1 {
     padding: 16px;
 }
 
@@ -462,7 +462,8 @@ input{
     }
 
     .playbar {
-        width: calc(100vw - 75px); 
+        /* display: none; */
+        width: calc(100vw - 75px);
     }
 
     .seekbar {
@@ -524,7 +525,7 @@ input{
         padding: 7px;
     }
 
-    .spotifyPlaylists h1 {
+    .zenfusionPlaylists h1 {
         padding: 4px;
     }
 
