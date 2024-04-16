@@ -1,7 +1,6 @@
 var search = document.getElementById('search');
 var searchbox = document.getElementById('searchbox');
 var inputbox = document.getElementById('searchfield');
-var val = document.getElementById('searchfield').value;
 
 search.addEventListener('click', function() {
 
@@ -12,11 +11,9 @@ search.addEventListener('click', function() {
 
 
 inputbox.addEventListener('blur', function() {
-    
-    if(val==''){
+    if (!this.value.trim()) {
         searchbox.style.display = 'none';
     }
-    
 });
 
 
