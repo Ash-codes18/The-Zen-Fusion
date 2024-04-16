@@ -378,7 +378,7 @@ button[type="submit"]:hover {
 }
 
 .episode-button:disabled:hover {
-  background-color: ##65a3ff;
+  background-color: #65a3ff;
 }
 
 /* anime detail design */
