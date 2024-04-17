@@ -45,16 +45,14 @@ async function fetchSongs(query, page) {
     }
 }
 
-
 async function displaySongs(query = 'top+hits', page = 1) {
     const newSongs = await fetchSongs(query, page);
     if (page === 1) {
-        // Clear the existing card container only when displaying the first page of results
+        songs = newSongs; // Store fetched songs in the global array
         const cardContainer = document.querySelector(".cardContainer");
-        cardContainer.innerHTML = '';
+        cardContainer.innerHTML = ''; // Clear the existing card container only when displaying the first page of results
     }
 
-    // Display songs on the UI
     const cardContainer = document.querySelector(".cardContainer");
     newSongs.forEach(song => {
         const card = document.createElement("div");
@@ -164,18 +162,28 @@ async function main() {
     });
 
     // Listen for the 'ended' event on the currentSong audio element
-    currentSong.addEventListener('ended', () => {
-        // Check if there are more songs in the playlist
-        if (currentSongIndex < songs.length - 1) {
-            // Play the next song
-            playMusic(songs[currentSongIndex + 1]);
-            currentSongIndex++;
-        } else {
-            // If the last song in the playlist has ended, fetch the next page of songs
-            currentPage++;
-            displaySongs('top+hits', currentPage);
+
+currentSong.addEventListener('ended', async () => {
+    // Check if there are more songs in the playlist
+    if (currentSongIndex < songs.length - 1) {
+        // Play the next song
+        playMusic(songs[currentSongIndex + 1]);
+        currentSongIndex++;
+    } else {
+        // If the last song in the playlist has ended, fetch the next page of songs
+        currentPage++;
+        const query = document.getElementById("searchfield").value.trim();
+        await displaySongs(query, currentPage);
+        
+        // Play the first song from the newly fetched songs if available
+        if (songs.length > 0) {
+            playMusic(songs[0]);
+            currentSongIndex = 0;
         }
-    });
+    }
+});
+
+
 
     // Add an event listener for seek bar
     document.querySelector(".seekbar").addEventListener("click", (e) => {
