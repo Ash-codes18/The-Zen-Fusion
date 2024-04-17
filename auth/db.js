@@ -6,12 +6,12 @@ import { getStorage, ref as storageRef, uploadBytes, getDownloadURL } from "http
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-  apiKey: "AIzaSyA9s5b2-OQA4wY3AwMFRt6qNOz-RYyth34",
-  authDomain: "login-example-dff35.firebaseapp.com",
-  projectId: "login-example-dff35",
-  storageBucket: "login-example-dff35.appspot.com",
-  messagingSenderId: "745268124885",
-  appId: "1:745268124885:web:8529e4339ca902e7ec565c"
+  apiKey: "AIzaSyC-fcT7czqu5Ttn-DsVGlx1sF9cLe0m_xs",
+  authDomain: "thezenfusion.firebaseapp.com",
+  projectId: "thezenfusion",
+  storageBucket: "thezenfusion.appspot.com",
+  messagingSenderId: "725185974268",
+  appId: "1:725185974268:web:fc64a1bbc97c6f9117ac79"
 };
 
 // Initialize Firebase
