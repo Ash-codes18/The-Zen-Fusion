@@ -86,6 +86,7 @@ document.addEventListener("DOMContentLoaded", () => {
               "current-time",
               "duration",
               "mute",
+              "quality",
               "volume",
               "captions",
               "settings",
