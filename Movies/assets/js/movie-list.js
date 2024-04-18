@@ -16,7 +16,7 @@ let totalPages = 0;
 
 fetchDataFromServer(`https://api.themoviedb.org/3/discover/movie?sort_by=popularity.desc&${urlParam}&page=${currentPage}&api_key=${api_key}&include_adult=false`, function ({ results: movieList, total_pages }) {
     totalPages = total_pages;
-    document.title = `${genreName} Movies - Tvflix`;
+    document.title = `${genreName} Movies - ZenFusion`;
     const movieListElem = document.createElement('section');
     movieListElem.className = 'movie-list genre-list';
     movieListElem.ariaLabel = `${genreName} Movies`;

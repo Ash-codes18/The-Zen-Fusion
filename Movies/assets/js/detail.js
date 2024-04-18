@@ -7,6 +7,7 @@ import { search } from "./search.js";
 
 
 const movieId = window.localStorage.getItem('movieId');
+console.log(movieId);
 
 const pageContent = document.querySelector('[page-content]');
 
@@ -93,6 +94,11 @@ fetchDataFromServer(`https://api.themoviedb.org/3/movie/${movieId}?api_key=${api
                     <div class="separator"></div>
                     <div class="meta-item">${release_date.split('-')[0]}</div>
                     <div class="meta-item card-badge">${certification}</div>
+                    <button class="stream-btn" id="stream-button">Stream Now</button>
+                    <div id="popupContainer" style="display: none;">
+                    <button id="closePopupBtn">Close</button>
+                    <iframe id="popupIframe" src="" allowfullscreen></iframe>
+                    </div>
                 </div>
                 <p class="genre">${getGenres(genres)}</p>
                 <p class="overview">${overview}</p>
