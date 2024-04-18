@@ -36,9 +36,9 @@ const firebaseConfig = {
     
     // Create HTML elements to display the file
     const songUL = document.querySelector(".songList").getElementsByTagName("ul")[0];
-    songUL.innerHTML += `<li> <img class="invert" width="34" src="./img/music.svg" alt="song-icon">
+    songUL.innerHTML += `<li href="${url}" class="uploaded-songs"> <img class="invert" width="34" src="./img/music.svg" alt="song-icon">
         <div class="info">
-        <div>${fileName}</div>
+        <div class="uploaded-song-name">${fileName}</div>
         </div>
         <div class="playnow">
         <span>Play Now</span>
@@ -46,6 +46,8 @@ const firebaseConfig = {
         </div>
         </li>`;
 }
+
+
 
   
   // Event listener for opening upload popup
