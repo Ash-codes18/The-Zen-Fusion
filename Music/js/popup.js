@@ -66,33 +66,25 @@ const firebaseConfig = {
       document.getElementById('selectedFileName').innerText = fileName;
   });
 
-function fetchAndDisplayUploadedFiles() {
+  function fetchAndDisplayUploadedFiles() {
     console.log("Fetching and displaying uploaded files...");
     if (auth.currentUser) {
         const { uid } = auth.currentUser;
         console.log("Current user UID:", uid);
         const userStorageRef = storageRef(storage, `songs/${uid}/`);
         console.log("User storage reference:", userStorageRef);
-        
-        // Assuming you have a database structure where you store information about uploaded files
-        const filesRef = ref(database, `uploadedFiles/${uid}`);
-        
-        // Retrieve the list of uploaded files from the database
-        get(filesRef).then((snapshot) => {
-            if (snapshot.exists()) {
-                const files = snapshot.val();
-                // Choose the first file or any other logic to select a file
-                const firstFileName = Object.keys(files)[0];
-                const firstFileUrl = files[firstFileName];
-                console.log("File name:", firstFileName);
-                console.log("File URL:", firstFileUrl);
-                displayUploadedFile(firstFileName);
-            } else {
-                console.log("No files found.");
-            }
+        const listRef = ref(userStorageRef);
+        console.log("list ref : ",listRef);
+
+        getDownloadURL(listRef).then((urls) => {
+            console.log("Download URLs:", urls);
+            urls.forEach((url) => {
+                const fileName = url.substring(url.lastIndexOf('/') + 1);
+                console.log("File name:", fileName);
+                displayUploadedFile(fileName);
+            });
         }).catch((error) => {
-            console.error('Error retrieving uploaded files from database:', error);
-            alert(error);
+            console.error('Error retrieving uploaded files:', error);
         });
     } else {
         console.log("No user logged in.");
@@ -134,7 +126,7 @@ function fetchAndDisplayUploadedFiles() {
       popup.style.display = 'none';
   });
   
-  // Check authentication state and fetch/display uploaded files on page load
+//   Check authentication state and fetch/display uploaded files on page load
   onAuthStateChanged(auth, (user) => {
       if (user) {
           fetchAndDisplayUploadedFiles();
