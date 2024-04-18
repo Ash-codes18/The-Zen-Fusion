@@ -1,6 +1,6 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.1.0/firebase-app.js";
 import { getDatabase, ref } from "https://www.gstatic.com/firebasejs/10.1.0/firebase-database.js";
-import { getStorage, ref as storageRef, uploadBytes, getDownloadURL } from "https://www.gstatic.com/firebasejs/10.1.0/firebase-storage.js";
+import { getStorage, ref as storageRef, listAll , uploadBytes, getDownloadURL } from "https://www.gstatic.com/firebasejs/10.1.0/firebase-storage.js";
 import { getAuth, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.1.0/firebase-auth.js";
 
 
@@ -28,8 +28,8 @@ const firebaseConfig = {
   var cancel =  document.getElementById('cancelPopupButton');
   var upload =  document.getElementById('uploadPopupButton');
   var fileInput = document.getElementById('song-input');
-  var songUL = document.querySelector(".songList").getElementsByTagName("ul")[0];
   
+
   function displayUploadedFile(url) {
     // Extract the file name from the URL
     const fileName = decodeURIComponent(url.substring(url.lastIndexOf('%2F') + 3, url.lastIndexOf('?')));
@@ -69,27 +69,31 @@ const firebaseConfig = {
   function fetchAndDisplayUploadedFiles() {
     console.log("Fetching and displaying uploaded files...");
     if (auth.currentUser) {
-        const { uid } = auth.currentUser;
-        console.log("Current user UID:", uid);
-        const userStorageRef = storageRef(storage, `songs/${uid}/`);
-        console.log("User storage reference:", userStorageRef);
-        const listRef = ref(userStorageRef);
-        console.log("list ref : ",listRef);
-
-        getDownloadURL(listRef).then((urls) => {
-            console.log("Download URLs:", urls);
-            urls.forEach((url) => {
-                const fileName = url.substring(url.lastIndexOf('/') + 1);
-                console.log("File name:", fileName);
-                displayUploadedFile(fileName);
+      const { uid } = auth.currentUser;
+      console.log("Current user UID:", uid);
+      const userStorageRef = storageRef(storage, `songs/${uid}/`);
+      console.log("User storage reference:", userStorageRef);
+  
+      // Use listAll to list the files in the directory
+      listAll(userStorageRef)
+        .then((result) => {
+          result.items.forEach((fileRef) => {
+            // Get the download URL for each file
+            getDownloadURL(fileRef).then((url) => {
+              console.log("Download URL:", url);
+              const fileName = fileRef.name;
+              console.log("File name:", fileName);
+              displayUploadedFile(url, fileName);
             });
+          });
         }).catch((error) => {
-            console.error('Error retrieving uploaded files:', error);
+          console.error('Error retrieving uploaded files:', error);
         });
     } else {
-        console.log("No user logged in.");
+      console.log("No user logged in.");
     }
-}
+  }
+  
 
   
   // Event listener for upload button
@@ -99,7 +103,7 @@ const firebaseConfig = {
       if (file) {
           const storageRefChild = storageRef(storage, `songs/${auth.currentUser.uid}/` + file.name);
           uploadBytes(storageRefChild, file)
-              .then((snapshot) => {
+              .then((songs) => {
                   console.log('Uploaded a song!');
                   getDownloadURL(storageRefChild)
                       .then((url) => {
