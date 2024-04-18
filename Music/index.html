@@ -17,6 +17,9 @@
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/utility.css">
 
+    <script src="/auth/session.js" defer type="module"></script>
+    <script src="/auth/music.js" defer type="module"></script>
+
     
         <title>ZenFusion</title>          
 </head>
@@ -113,12 +116,14 @@
                     </div>
                 </div>
 
-                <div class="buttons">
-        
-        
-                    <button class="signupbtn">Sign up</button>
-                    <button class="loginbtn">Log in</button>
+
+                <div id="profile-icon" style="display: none;">
+                   
+                    <img src="" width="40" alt="profile" id="profile-image">
+                    
+
                 </div>
+
             </div>
             <div class="zenfusionPlaylists">
                 <h1>Your Playlists</h1>
@@ -164,7 +169,6 @@
     </div>
     <script src="js/script.js"></script>
     <script src="js/search.js"></script>
-    <script src="js/auth.js" defer type="module"></script>
       
 
 </body>

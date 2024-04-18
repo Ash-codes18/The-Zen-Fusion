@@ -298,6 +298,13 @@ input{
     font-size: 17px;
 }
 
+#profile-image{
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
 
 .playbar {
     display: flex;

@@ -1,10 +1,9 @@
-console.log('Lets write JavaScript');
 let currentSong = new Audio();
 let currFolder;
 let songs = [];
-let currentPage = 1; // Track the current page number
+let currentPage = 1;
 const songsPerPage = 10;
-let currentSongIndex = -1; // Initialize index to -1
+let currentSongIndex = -1;
 
 function secondsToMinutesSeconds(seconds) {
     if (isNaN(seconds) || seconds < 0) {
@@ -48,7 +47,7 @@ async function fetchSongs(query, page) {
 async function displaySongs(query = 'top+hits', page = 1) {
     const newSongs = await fetchSongs(query, page);
     if (page === 1) {
-        songs = newSongs; // Store fetched songs in the global array
+        songs = newSongs; // Store fetched songs in the array
         const cardContainer = document.querySelector(".cardContainer");
         cardContainer.innerHTML = ''; // Clear the existing card container only when displaying the first page of results
     }
@@ -118,7 +117,7 @@ async function main() {
         }
     });
 
-    // Attach an event listener to play, next and previous
+
     play.addEventListener("click", () => {
         if (currentSong.paused) {
             currentSong.play();
@@ -129,7 +128,7 @@ async function main() {
         }
     });
 
-    // Add event listener to previous
+
     previous.addEventListener("click", () => {
         currentSong.pause();
         console.log("Previous clicked");
@@ -142,7 +141,7 @@ async function main() {
         }
     });
 
-    // Add event listener to next
+
     next.addEventListener("click", () => {
         currentSong.pause();
         console.log("Next clicked");
@@ -155,37 +154,33 @@ async function main() {
         }
     });
 
-    // Listen for timeupdate event
+
     currentSong.addEventListener("timeupdate", () => {
         document.querySelector(".songtime").innerHTML = `${secondsToMinutesSeconds(currentSong.currentTime)} / ${secondsToMinutesSeconds(currentSong.duration)}`
         document.querySelector(".circle").style.left = (currentSong.currentTime / currentSong.duration) * 100 + "%";
     });
 
-    // Listen for the 'ended' event on the currentSong audio element
 
-currentSong.addEventListener('ended', async () => {
-    // Check if there are more songs in the playlist
-    if (currentSongIndex < songs.length - 1) {
-        // Play the next song
-        playMusic(songs[currentSongIndex + 1]);
-        currentSongIndex++;
-    } else {
-        // If the last song in the playlist has ended, fetch the next page of songs
-        currentPage++;
-        const query = document.getElementById("searchfield").value.trim();
-        await displaySongs(query, currentPage);
-        
-        // Play the first song from the newly fetched songs if available
-        if (songs.length > 0) {
-            playMusic(songs[0]);
-            currentSongIndex = 0;
+
+    currentSong.addEventListener('ended', async () => {
+
+        if (currentSongIndex < songs.length - 1) {
+            playMusic(songs[currentSongIndex + 1]);
+            currentSongIndex++;
+        } else {
+            currentPage++;
+            const query = document.getElementById("searchfield").value.trim();
+            await displaySongs(query, currentPage);
+
+            if (songs.length > 0) {
+                playMusic(songs[0]);
+                currentSongIndex = 0;
+            }
         }
-    }
-});
+    });
 
 
 
-    // Add an event listener for seek bar
     document.querySelector(".seekbar").addEventListener("click", (e) => {
         const seekPosition = (e.offsetX / e.target.offsetWidth) * currentSong.duration;
         currentSong.currentTime = seekPosition;
@@ -195,12 +190,10 @@ currentSong.addEventListener('ended', async () => {
         document.querySelector(".left").style.left = "0"
     });
 
-    // Add an event listener for close button
     document.querySelector(".close").addEventListener("click", () => {
         document.querySelector(".left").style.left = "-120%"
     });
 
-    // Add an event listener for volume
     document.querySelector(".range").getElementsByTagName("input")[0].addEventListener("change", (e) => {
         console.log("Setting volume to", e.target.value, "/ 100")
         currentSong.volume = parseInt(e.target.value) / 100
@@ -209,7 +202,6 @@ currentSong.addEventListener('ended', async () => {
         }
     });
 
-    // Add event listener to mute the track
     document.querySelector(".volume>img").addEventListener("click", e => {
         if (e.target.src.includes("volume.svg")) {
             e.target.src = e.target.src.replace("volume.svg", "mute.svg")
