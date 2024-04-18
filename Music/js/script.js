@@ -180,6 +180,16 @@ async function main() {
     });
 
 
+    function openPopup() {
+        document.getElementById('popupContainer').style.display = 'block';
+      }
+      
+      function closePopup() {
+        document.getElementById('popupContainer').style.display = 'none';
+      }
+      
+
+
 
     document.querySelector(".seekbar").addEventListener("click", (e) => {
         const seekPosition = (e.offsetX / e.target.offsetWidth) * currentSong.duration;

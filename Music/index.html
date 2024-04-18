@@ -19,6 +19,7 @@
 
     <script src="/auth/session.js" defer type="module"></script>
     <script src="/auth/music.js" defer type="module"></script>
+    <script src="./js/popup.js" defer type="module"></script>
 
     
         <title>ZenFusion</title>          
@@ -32,8 +33,26 @@
             </div>
             <div class="home bg-grey rounded m-1 p-1">
                 <div class="logo"><img width="110" src="../assets/zenfusion-high-resolution-logo-transparent.svg" alt=""></div>
-                <ul>
-                    <li><img class="invert" src="img/upload.png" alt="upload" width="20px">Upload</li>
+                <ul id="cursor-ptr">
+                    <li id="upload-song">
+                        <img class="invert" src="img/upload.png" alt="upload" width="20px">Upload
+                    </li>
+ 
+                    <div class="overlay" id="overlay"></div>
+                    <div id="popup" class="popup">
+                        <h2>Upload a Song</h2>
+                        <label class="file-input-wrapper">
+                            <input type="file" accept=".mp3, .wav" id="song-input">
+                            Browse
+                        </label>
+                        <div id="selectedFileName" style="margin-bottom: 30px;">No file selected...</div>
+                      <div class="popup-buttons">
+                        <button id="uploadPopupButton">Upload</button>
+                        <button id="cancelPopupButton">Cancel</button>
+                      </div>
+                    </div>
+
+
                     <li id="search"><img class="invert" src="img/search.svg" alt="search">Search</li>
                 </ul>
             </div>
@@ -49,7 +68,7 @@
                 <div class="songList">
 
                     <ul>
-
+                        
                     </ul>
                 </div>
 
@@ -118,9 +137,9 @@
 
 
                 <div id="profile-icon" style="display: none;">
-                   
-                    <img src="" width="40" alt="profile" id="profile-image">
-                    
+                <a href="profile.html">
+                    <img src="./img/user.png" width="40" alt="profile" id="profile-image">
+                </a>
 
                 </div>
 

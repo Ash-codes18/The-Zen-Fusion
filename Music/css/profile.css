@@ -1,0 +1,115 @@
+body .image {
+    border-radius: 5px;
+    filter: saturate(130%);
+   }
+   
+   
+   
+   .list-group {
+    border: none !important;
+   }
+   
+
+   .offcanvas-footer {
+
+    padding: var(--bs-offcanvas-padding-y) var(--bs-offcanvas-padding-x);
+    overflow-y: auto;
+   }
+   
+   .offcanvas-footer button{
+    margin-left: 1.2rem;
+   }
+   
+    .profile-banner {
+     position: relative;
+     height: 120px;
+     background-image: url('https://user-images.githubusercontent.com/33485020/108069438-5ee79d80-7089-11eb-8264-08fdda7e0d11.jpg');
+     background-size: cover;
+     background-position: center;
+     filter: blur(2px);
+   
+   }
+   
+   .profile-picture-container {
+     position: relative;
+     top: -100px; 
+     display: flex;
+     justify-content: center;
+     align-items: center;
+   }
+   
+   .profile-picture {
+     width: 150px;
+     height: 150px;
+     border-radius: 50%;
+     overflow: hidden;
+     border: 1px solid rgb(97, 255, 128); 
+     background-image: url('https://xsgames.co/randomusers/avatar.php?g=male');
+     background-size: cover;
+   }
+   
+   .profile-info {
+     text-align: center;
+   }
+   
+   .profile-info h2 {
+     margin-bottom: 10px;
+   }
+   
+   
+   
+   
+   .footer{
+     padding:30px 0px;
+     font-family: 'Play', sans-serif;
+     text-align:center;
+     }
+   
+   .footer .footer-row{
+     width:100%;
+     margin:1% 0%;
+     padding:0.6% 0%;
+     color:gray;
+     font-size:0.8em;
+   }
+   
+   .footer .footer-row a{
+     text-decoration:none;
+     color:gray;
+     transition:0.5s;
+   }
+   
+   .footer .footer-row a:hover{
+     color:#fff; 
+   }
+   
+   .footer .footer-row ul{
+     width:100%;
+   }
+   
+   .footer .footer-row ul li{
+     display:inline-block;
+     margin:0px 30px;
+   }
+   
+   .footer .footer-row a i{
+     font-size:2em;
+     margin:0% 1%;
+   }
+   
+   @media (max-width:720px){
+   .footer{
+     text-align:left;
+     padding:5%;
+   }
+   
+   .footer .footer-row ul li{
+     display:block;
+     margin:10px 0px;
+     text-align:left;
+   }
+   
+   .footer .footer-row a i{
+     margin:0% 3%;
+   }
+   }

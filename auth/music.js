@@ -25,11 +25,12 @@ onAuthStateChanged(auth, function(user) {
     
     if(user) {
         const profileUrl = user.photoURL;
+        profileicon.style.display = "block";
         if (profileUrl) {
             profileImage.src = profileUrl;
-            profileicon.style.display = "block";
         }
-    } else {
-        profileImage.style.display = "none";
-    }
+        else{
+            profileImage.classList.add("invert");
+        }
+    } 
 });
