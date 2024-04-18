@@ -128,36 +128,42 @@ async function main() {
         }
     });
 
-// Attach event listener to all elements with class "uploaded-song"
-const uploadedSongs = document.querySelectorAll(".uploaded-songs");
-uploadedSongs.forEach(song => {
-    song.addEventListener("click", function(event) {
+// Wait 2 seconds before attaching event listeners
+setTimeout(function() {
+    const uploadedSongs = document.querySelectorAll(".uploaded-songs");
+    if (uploadedSongs) {
+      console.log("Uploaded songs found:", uploadedSongs.length);
+    }
+    uploadedSongs.forEach(song => {
+      song.addEventListener("click", function(event) {
         console.log("Clicked play on uploaded song.");
         // Prevent the default behavior of the link
-        event.preventDefault();
-
+        // event.preventDefault();
+  
         // Get the URL from the href attribute of the clicked element
-        const url = this.getAttribute("href");
-
+        const url = this.getAttribute("link");
+  
         // Get the song name from the corresponding div with class "uploaded-song-name"
         const songName = this.querySelector(".uploaded-song-name").textContent;
-
+  
         // Set the current song source and play it
         currentSong.src = url;
         currentSong.play();
-
+  
         // Update song information
         document.querySelector(".songinfo").innerHTML = songName;
         document.querySelector(".songtime").innerHTML = "00:00 / " + secondsToMinutesSeconds(song.duration);
-
+  
         // Change play button icon to pause
         play.src = "img/pause.svg";
-
+  
         // Log information to console
         console.log("Song clicked. URL:", url);
         console.log("Playing song:", songName);
+      });
     });
-});
+  }, 2000);
+  
 
 
     previous.addEventListener("click", () => {

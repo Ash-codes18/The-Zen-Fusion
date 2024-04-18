@@ -36,7 +36,7 @@ const firebaseConfig = {
     
     // Create HTML elements to display the file
     const songUL = document.querySelector(".songList").getElementsByTagName("ul")[0];
-    songUL.innerHTML += `<li href="${url}" class="uploaded-songs"> <img class="invert" width="34" src="./img/music.svg" alt="song-icon">
+    songUL.innerHTML += `<li link="${url}" class="uploaded-songs"> <img class="invert" width="34" src="./img/music.svg" alt="song-icon">
         <div class="info">
         <div class="uploaded-song-name">${fileName}</div>
         </div>
