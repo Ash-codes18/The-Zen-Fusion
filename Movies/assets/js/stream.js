@@ -15,4 +15,4 @@ setTimeout(function() {
       popupContainer.style.display = 'none';
     });
   });
-}, 2000);
+}, 3000);

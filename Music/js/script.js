@@ -162,7 +162,7 @@ setTimeout(function() {
         console.log("Playing song:", songName);
       });
     });
-  }, 2000);
+  }, 3000);
   
 
 
