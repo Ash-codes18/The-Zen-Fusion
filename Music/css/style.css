@@ -74,7 +74,7 @@ a {
 }
 
 .library {
-    min-height: 80vh;
+    min-height: 10vh;
     position: relative;
 }
 
@@ -335,11 +335,15 @@ input{
 }
 
 .load-button{
+    /* position: absolute;
+    top: 118px;
+    right: 500px; */
     display: flex;
     justify-content: center;
 }
 
 #loadMoreBtn{
+
     background-color: #1fdf64;
     color: var(--white);
     padding: 10px;
@@ -404,7 +408,7 @@ input{
     justify-content: center;
     align-items: center;
     position: fixed;
-    bottom: 30px;
+    bottom: 5px;
     filter: invert(1);
     background: #e2d9d9;
     border-radius: 10px;
@@ -421,7 +425,7 @@ input{
 }
 
 .songList {
-    height: 544px;
+    height: 45vh;
     overflow: auto;
     margin-bottom: 44px;
 }
