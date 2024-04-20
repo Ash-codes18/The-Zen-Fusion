@@ -23,6 +23,15 @@ body {
 	gap: 8px;
 }
 
+
+#profile-image{
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  cursor: pointer;
+  margin-left: 10px;
+}
+
 .navigation{
 	margin-right: 50px;
 	justify-content: center;

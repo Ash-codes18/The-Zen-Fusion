@@ -14,6 +14,8 @@
   <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
   <script src="https://cdn.plyr.io/3.6.9/plyr.js"></script>
   <script src="/auth/session.js" defer type="module"></script>
+  <script src="../auth/music.js" defer type="module"></script>
+
   <link rel="shortcut icon" type="image/x-icon" href="/assets/zenfusion-favicon-color.svg">
   <style>
     :root {
@@ -24,7 +26,7 @@
 
 <body>
   <header class="header">
-    <a href="/index.html" class="logo">
+    <a href="../home.html" class="logo">
       <img
         src="/assets/zenfusion-high-resolution-logo-transparent.svg"
         width="140"
@@ -49,6 +51,16 @@
     <div class="navigation">
       <a href="/Music/index.html">Music</a>
     </div>
+
+    <div id="profile-icon">
+      <a href="../Music/profile.html">
+          <img src="../Music/img/user.png" width="40" alt="profile" id="profile-image">
+      </a>
+
+      </div>
+
+
+
     </header>
 
   <main>
@@ -81,7 +93,7 @@
     </div>
     
     <div class="footer-row">
-        <a href="index.html">
+        <a href="../home.html">
             <img src="../assets/zenfusion-favicon-color.svg">
         </a>
     </div>

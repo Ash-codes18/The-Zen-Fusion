@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Play&display=swap" rel="stylesheet"> 
+    <link rel="shortcut icon" href="../assets/zenfusion-favicon-color.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="./assets/contact.css">
+    <script src="./assets/contact.js" defer type="module"></script>
+    <script src="./auth/session.js" defer type="module"></script>
+    <script src="../auth/music.js" defer type="module"></script>
+
+    <title>Zen Fusion</title>
+</head>
+<body class="text-light">
+
+    <div class="header">
+        <a href="home.html">
+            <img src="../assets/zenfusion-high-resolution-logo-transparent.svg" alt="ZenFusion Logo" width="250px">
+        </a>
+        <button id="back-btn"> <i class="fa-solid fa-arrow-left" style="color: #000000;"></i> Go Back</button>
+
+        <div id="profile-icon" style="display: none;">
+            <a href="/Music/profile.html">
+                <img src="/Music/img/user.png" width="40" alt="profile" id="profile-image">
+            </a>
+
+            </div>
+
+
+    </div>
+    
+    <div class="container">
+
+        <div class="left">
+            <h1 class="intro-text">Need Support?</h1>
+            <p class="grey-text">Reach out to us!</p>
+
+            <form class="login-details" action="https://api.web3forms.com/submit" method="POST">
+                <input type="hidden" name="access_key" value="7c4b4cc1-5cc2-451c-9f6e-02cb92773e31">
+                <input type="hidden" name="email" id="email">
+                <div class="input-group">
+                    <label for="name">Name</label>
+                    <input type="text" id="name" name="name" placeholder="Enter your name" required>
+                </div>
+                <div class="input-group">
+                    <label for="password">Message</label>
+                    <textarea name="message" required></textarea>
+                </div>
+                <button class="sign-up-btn" id="login">Submit</button>
+            </form>
+
+
+
+
+            <p class="login-text">Have more questions? See <a id="faq-btn">FAQ's</a></p>
+
+
+        </div>
+
+
+        <div class="right">
+            <h1 class="img-text">Entertainment Redefined</h1>
+            <h3 class="img-text-below">Experience the Unreal.</h3>
+            <h2 class="img-text-below">Its all about YOU!</h2>   
+            <img src="/assets/zenfusion-favicon-color.svg" class="above-img">
+        </div>
+
+    </div>
+
+
+<div class="faqs" id="faqs">
+    <h1 id="faq-heading">Frequently Asked Questions</h1>
+    <div class="parent-container">
+        <ul class="faq">
+          <li>
+            <h3 class="question">Is ZenFusion free to use?
+              <div class="plus-minus-toggle collapsed"></div>
+            </h3>
+            <div class="answer">
+                Yes, ZenFusion is available to all users for Free, Forever..... we mean it when we say Forever!.
+                </div>
+          </li>
+          <li>
+            <h3 class="question">Can i delete my account?
+              <div class="plus-minus-toggle collapsed"></div>
+            </h3>
+            <div class="answer">
+                Yes, you can delete your account at any time. Please note that this action is irreversible and will permanently delete all your account data.
+                </div>
+          </li>
+          </li>
+          <li>
+            <h3 class="question">How do i update my profile information?
+              <div class="plus-minus-toggle collapsed"></div>
+            </h3>
+            <div class="answer">
+                To update your profile information, navigate to the "Profile" section and make the desired changes. Don't forget to save your changes after updating your information.
+                </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+   
+    
+
+</body>
+</html>

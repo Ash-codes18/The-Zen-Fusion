@@ -63,12 +63,12 @@ button{
     height: 100px;
     border-radius: 50%;
     cursor: pointer;
+    transition: 0.5s;
 }
 
 #profile-image:hover{
     transform: scale(1.1);
-    transition: 0.5s ;
-}
+ }
 
 
 .footer{
