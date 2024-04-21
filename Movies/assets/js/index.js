@@ -1,8 +1,3 @@
-'use strict';
-
-/**
- * ! Import all components and functions 
-*/
 import { sidebar } from "./sidebar.js";
 import { api_key, imageBaseUrl, fetchDataFromServer } from "./api.js";
 import { createMovieCard } from './movie-card.js';
@@ -12,9 +7,8 @@ const pageContent = document.querySelector('[page-content]');
 
 sidebar();
 
-/**
- * ! Home Page Sections (Top rated, Upcoming, Trending movies)
- */
+// Home Page Sections (Top rated, Upcoming, Trending movies)
+
 
 const homePageSections = [
     {
@@ -31,14 +25,14 @@ const homePageSections = [
     },
 ]
 
-/**
- * ? fetch all genres eg: [ { "id" : "123", "name" : "Action" } ]
- * ? then change genre format eg: { 123 : "Action" }
- */
+/*
+fetch all genres eg: [ { "id" : "123", "name" : "Action" } ]
+then change genre format eg: { 123 : "Action" }
+*/
 
 const genreList = {
-    /**
-     * ! create genre string from genre_id eg: [23, 43] -> "Action Romance"
+    /*
+    create genre string from genre_id eg: [23, 43] -> "Action Romance"
      */
 
     asString(genreIdList) {
@@ -136,8 +130,8 @@ const heroBanner = function ({ results: movieList }) {
     pageContent.appendChild(banner);
     addHeroSlide();
 
-    /**
-     * ? fetch data for homepage sections (top rated, upcoming, trending)
+    /*
+     fetch data for homepage sections (top rated, upcoming, trending)
      */
 
     for (const { title, path } of homePageSections) {
@@ -145,8 +139,8 @@ const heroBanner = function ({ results: movieList }) {
     }
 }
 
-/**
- * ! Hero Slider functionality
+/*
+ Hero Slider functionality
 */
 const addHeroSlide = function () {
     const sliderItems = document.querySelectorAll('[slider-item]');
@@ -166,7 +160,8 @@ const addHeroSlide = function () {
             lastSliderItem.classList.remove('active');
             lastSliderControl.classList.remove('active');
 
-            // Here, 'this' is slider-control
+            // this = slider control
+
             sliderItems[controlIndex].classList.add('active');
             this.classList.add('active');
             lastSliderItem = sliderItems[controlIndex];
@@ -186,8 +181,8 @@ const addHeroSlide = function () {
     addEventOnElements(sliderControls, 'click', sliderStart);
 }
 
-/**
- * ! Create Movie List 
+/*
+  Create Movie List 
 */
 
 const createMovieList = function ({ results: movieList }, title) {

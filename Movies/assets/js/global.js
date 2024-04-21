@@ -1,6 +1,3 @@
-'use strict';
-
-
 const addEventOnElements = function (elements, eventType, callback) {
     elements.forEach((elem) => {
         elem.addEventListener(eventType, callback);

@@ -128,7 +128,7 @@ async function main() {
         }
     });
 
-// Wait 2 seconds before attaching event listeners
+// Wait 3 seconds before attaching event listeners
 setTimeout(function() {
     const uploadedSongs = document.querySelectorAll(".uploaded-songs");
     if (uploadedSongs) {

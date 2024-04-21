@@ -15,6 +15,7 @@
     "express": "^4.19.2",
     "firebase": "^10.11.0",
     "mongoose": "^8.3.2",
+    "postmark": "^4.0.2",
     "resend": "^3.2.0"
   }
 }

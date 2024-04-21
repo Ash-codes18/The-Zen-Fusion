@@ -1,5 +1,3 @@
-'use strict';
-
 import { api_key, fetchDataFromServer } from "./api.js";
 import { sidebar } from "./sidebar.js";
 import { createMovieCard } from "./movie-card.js";
@@ -28,8 +26,8 @@ fetchDataFromServer(`https://api.themoviedb.org/3/discover/movie?sort_by=popular
         <button class="btn load-more" load-more>Load More</button>
     `;
 
-    /**
-     * ! add movie card based on fetched data
+    /*
+      add movie card based on fetched data
      */
 
     for (const movie of movieList) {
@@ -39,8 +37,8 @@ fetchDataFromServer(`https://api.themoviedb.org/3/discover/movie?sort_by=popular
 
     pageContent.appendChild(movieListElem);
 
-    /**
-     * ! load more button functionality
+    /*
+      load more button functionality
      */
 
     document.querySelector('[load-more]').addEventListener('click', function () {

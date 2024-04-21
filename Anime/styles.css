@@ -45,8 +45,6 @@ body {
 
 
 
-
-/* search section design */
 .search-section {
   background-color: hsla(220, 17%, 7%, 1);
   padding: 20px 0;
@@ -76,34 +74,13 @@ h2 {
   border-radius: 10px;
 }
 
-/* .logo-container {
-  display: flex;
-  align-items: center;
-}
-
-.logo-image {
-  width: 60px; 
-  height: auto; 
-  margin-right: 5px;
-} */
-
-/* .logo {
-  font-family: Elephant, sans-serif;
-  font-size: 24px;
-  font-weight: 500;
-  color: #fff;
-  text-decoration: none;
-} */
 
 a {
   text-decoration: none;
-  /* display: block; */
   color: hsl(0, 0%, 80%);
   border-radius: 5px;
 }
 
-/* the sub/dub toggle */
-/* the sub/dub toggle */
 .switch-container {
   display: flex;
   align-items: center;
@@ -111,7 +88,6 @@ a {
   margin-left: 10px;
 }
 
-/* Switch(dub/sub) design */
 .switch {
   position: relative;
   display: inline-block;
@@ -155,8 +131,8 @@ input:checked + .slider {
 }
 
 input:focus + .slider {
-  outline: 2px solid white; /* Replace glow with white border */
-  outline-offset: 2px; /* Add space between border and slider */
+  outline: 2px solid white;
+  outline-offset: 2px; 
 }
 
 input:checked + .slider:before {
@@ -168,7 +144,7 @@ input:checked + .slider:before {
   color: #fff;
 }
 
-/* rounded sliders */
+
 .slider.round {
   border-radius: 34px;
 }
@@ -177,7 +153,6 @@ input:checked + .slider:before {
   border-radius: 50%;
 }
 
-/* anime description design */
 .anime-description,
 .anime-image {
   background-color: hsla(220, 17%, 7%, 1);
@@ -203,7 +178,6 @@ input:checked + .slider:before {
   max-width: 900px;
 }
 
-/* search & button design */
 .search-section {
   background-color: hsla(220, 17%, 7%, 1);
   padding: 20px 0;
@@ -246,7 +220,6 @@ button[type="submit"]:hover {
   transform: scale(1.05);
 }
 
-/* search result button */
 #search-results {
   display: flex;
   flex-wrap: wrap;
@@ -306,7 +279,6 @@ button[type="submit"]:hover {
   }
 }
 
-/* video player design */
 .video-section {
   display: flex;
   flex-direction: column;
@@ -331,7 +303,6 @@ button[type="submit"]:hover {
   border-radius: 10px; 
 }
 
-/* episode design */
 .current-ep {
   display: inline-block;
   outline: 2px solid #2361c0; 
@@ -391,7 +362,6 @@ button[type="submit"]:hover {
   background-color: #65a3ff;
 }
 
-/* anime detail design */
 .episode {
   display: block;
   background-color: #2c7cf6;
@@ -415,14 +385,6 @@ button[type="submit"]:hover {
   text-align: center;
 }
 
-/* footer design or style */
-/* footer {
-  background: linear-gradient(90deg, #0D6EFD, #1b68da);
-  background-color: transparent;
-  padding: 10px 20px;
-  text-align: center;
-  border-radius: 10px; 
-} */
 
 #video-section {
   margin-top: 20px;
@@ -500,16 +462,6 @@ button[type="submit"]:hover {
   overflow-y: auto
 }
 
-/*
-.list-box {
-  width: 80%;
-  margin: 30px auto;
-  max-width: 900px;
-  overflow-y: auto;
-}
-*/
-
-/* scrollbar design */
 ::-webkit-scrollbar {
     width: 6px;
 }
@@ -648,7 +600,6 @@ button[type="submit"]:hover {
   background-color: #65a3ff;
 }
 
-/* Episode dropdown design */
 .custom-dropdown-container {
   position: relative;
   display: inline-block;
@@ -664,7 +615,7 @@ button[type="submit"]:hover {
   border: 2px solid #184d9c;
   border-radius: 15px; 
   background-color: #fff;
-  color: #333; /* Default text color */
+  color: #333; 
   cursor: pointer;
   outline: none;
   position: relative; 
@@ -675,8 +626,8 @@ button[type="submit"]:hover {
 .custom-dropdown:hover,
 .custom-dropdown:focus {
   background-color: #282a36;
-  color: #fff; /* Changing text color for better visibility on hover/focus */
-  border-color: #2361c0 /* Change border color for a noticeable effect */
+  color: #fff; 
+  border-color: #2361c0 
 }
 
 .dropdown-open {

@@ -1,5 +1,3 @@
-'use strict';
-
 const api_key = '0c47217bbf65aa2dcc3cf53dffded77f';
 const imageBaseUrl = 'https://image.tmdb.org/t/p/';
 

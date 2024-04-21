@@ -1,5 +1,3 @@
-'use strict';
-
 import { imageBaseUrl } from "./api.js";
 
 export function createMovieCard(movie) {
