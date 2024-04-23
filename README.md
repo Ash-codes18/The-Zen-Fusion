@@ -3,7 +3,7 @@
     <a href="https://github.com/Ash-codes18/The-Zen-Fusion">
       <img src="/assets/zenfusion-high-resolution-logo-transparent.svg" alt="Logo">
     </a>
-    <h3>Zenfusion - Entertainment Redefined</h3>
+    <h3>Entertainment Redefined</h3>
    
 <a href="https://github.com/Ash-codes18/The-Zen-Fusion/stargazers">
       <img src="https://img.shields.io/github/stars/Ash-codes18/The-Zen-Fusion?style=flat-square" alt="Github Stars">
@@ -97,5 +97,4 @@ This should download this repository to your computer. Next, to download the dep
 npm install
 ```
 
-Now build and start the production build of the site by running the `index.html` file
 
