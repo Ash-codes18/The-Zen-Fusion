@@ -19,7 +19,7 @@
   <hr />
 
   <p align="center">
-    The open-source Movie, anime, and music streaming service made with plain HTMl, Bootstrap and Vanilla JS. It lets you search, watch movies, anime, listen to music in the highest quality possible without any ads with a beautiful ui. It can be self hosted or deployed online.
+    The open-source Movie, anime, and music streaming service made with HTML, Bootstrap and plain JS. It lets you search and watch movies, anime and listen to music in the highest quality possible without any ads with a beautiful ui. It can be self hosted or deployed online.
   </p>
 </p>
 
