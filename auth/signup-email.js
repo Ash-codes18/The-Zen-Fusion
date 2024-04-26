@@ -24,6 +24,7 @@ submit.addEventListener("click", function () {
 
   var email = document.getElementById("email").value;
   var password = document.getElementById("password").value;
+  var confirm = document.getElementById("ConfirmPass").value;
 //   var button = event.target; // Get the button that was clicked
 
   if (!isValidEmail(email)) {
@@ -41,6 +42,10 @@ submit.addEventListener("click", function () {
     return; // Exit the function early if any other field is empty
   }
 
+  if(confirm!=password){
+    alert("Passwords do not match");
+    return;
+  }
 
 
 createUserWithEmailAndPassword(auth, email, password)
