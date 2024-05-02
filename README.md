@@ -65,7 +65,7 @@ Following are the recommended online deployment services which are tested to wor
 
 ## Docker Deployment
 
-The docker images for this app is available at dockerhub. [ashmitmehta/zenfusion](https://hub.docker.com/repository/docker/ashmitmehta/zenfusion).
+The docker images for this app is available at [dockerhub](https://hub.docker.com/repository/docker/ashmitmehta/zenfusion).
 
 Run it easily using this command
 
@@ -79,22 +79,19 @@ You can run this as a background service by adding `-d` flag
 
 ## Local Deployment
 
-You need to have `nodejs` and `git` installed on your pc for following the intructions
+You need to have `git` installed on your pc for following the intructions
 
 First download the repository using
 ```
 git clone https://github.com/Ash-codes18/The-Zen-Fusion
 ```
 
-Next make sure you have node installed on your system
+This should download this repository to your computer. Next, navigate to the folder using
 ```
-node -v
-```
-> this step probably requires admin perms
-
-This should download this repository to your computer. Next, to download the dependencies run
-```
-npm install
+cd The-Zen-Fusion
 ```
 
-
+Now, run the site by running the index.html file in your browser. You can do this by double clicking the file or running the following command in your terminal
+```bash
+start index.html
+```
