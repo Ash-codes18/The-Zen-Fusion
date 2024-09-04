@@ -10,8 +10,8 @@ document.addEventListener('DOMContentLoaded', async () => {
   }
 
   if (animeId) {
-    const primaryApiUrl = `https://api-consumet-org-six.vercel.app/anime/gogoanime/info/${animeId}`;
-    const fallbackUrl = `https://api-consumet-psi.vercel.app/anime/gogoanime/info/${animeId}`;
+    const primaryApiUrl = `https://consumet-six-mu.vercel.app/anime/gogoanime/info/${animeId}`;
+    const fallbackUrl = `https://consumet-git-main-ashs-projects-b3e0f69e.vercel.app/anime/gogoanime/info/${animeId}`;
 
     try {
       const response = await fetch(primaryApiUrl);
