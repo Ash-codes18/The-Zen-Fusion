@@ -80,8 +80,8 @@ window.onload = function() {
       return;
     }
 
-    const primaryApiUrl = `https://api-consumet-org-six.vercel.app/anime/gogoanime/${query}?page=${pageNumber}&limit=21`;
-    const fallbackUrl = `https://api.consumet.org/anime/gogoanime/${query}?page=${pageNumber}&limit=21`;
+    const primaryApiUrl = `https://consumet-six-mu.vercel.app/anime/gogoanime/${query}?page=${pageNumber}&limit=21`;
+    const fallbackUrl = `https://consumet-git-main-ashs-projects-b3e0f69e.vercel.app/gogoanime/${query}?page=${pageNumber}&limit=21`;
 
     console.log(primaryApiUrl);
     showLoadingSpinner();
