@@ -20,7 +20,7 @@ function secondsToMinutesSeconds(seconds) {
 }
 
 async function fetchSongs(query, page) {
-    const apiUrl = `https://saavn.dev/api/search/songs?query=${query}&page=${page}`;
+    const apiUrl = `https://music-api-sigma-one.vercel.app/search/songs?query=${query}&page=${page}`;
     try {
         const response = await fetch(apiUrl);
         const data = await response.json();
