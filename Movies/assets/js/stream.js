@@ -10,7 +10,7 @@ setTimeout(function() {
   btn.addEventListener('click', function () {
     toggleGreyOut();
     popup.style.display = 'block';
-    popupIframe.src = `https://vidsrc.to/embed/movie/${movieId}`;
+    popupIframe.src = `https://www.2embed.cc/embed/${movieId}`;
     closePopupBtn.addEventListener('click', function () {
       popup.style.display = 'none';
       toggleGreyOut();

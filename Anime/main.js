@@ -9,6 +9,20 @@ document.addEventListener('DOMContentLoaded', () => {
   let query = '';
   let pageNumber = 1;
 
+  // When the document loads, set the initial toggle state from localStorage
+  window.onload = function() {
+    const savedToggleState = JSON.parse(localStorage.getItem('toggleState'));
+    if (savedToggleState === null) {
+      localStorage.setItem('toggleState', JSON.stringify(true));
+      toggleSwitch.checked = true;
+      toggleState.textContent = 'Sub';
+    } else {
+      toggleSwitch.checked = savedToggleState;
+      toggleState.textContent = savedToggleState ? 'Sub' : 'Dub';
+    }
+  };
+
+  // Listen for form submission, update query and fetch data
   searchForm.addEventListener('submit', async (event) => {
     event.preventDefault();
     query = event.target.search.value;
@@ -16,51 +30,27 @@ document.addEventListener('DOMContentLoaded', () => {
     await fetchAndDisplayData(query, pageNumber);
   });
 
+  // Allow toggling via 'Enter' key
   toggleSwitch.addEventListener('keydown', (event) => {
     if (event.key === 'Enter' || event.keyCode === 13) {
-      event.preventDefault(); // Prevent form submission
-      toggleSwitch.click(); // Toggle the switch
+      event.preventDefault();
+      toggleSwitch.click(); 
     }
   });
 
-
-
-window.onload = function() {
-  const savedToggleState = JSON.parse(localStorage.getItem('toggleState'));
-  if (savedToggleState === null) {
-    localStorage.setItem('toggleState', JSON.stringify(true));
-    toggleSwitch.checked = true;
-    toggleState.textContent = 'Sub';
-  } else {
-    toggleSwitch.checked = savedToggleState;
-    toggleState.textContent = savedToggleState ? 'Sub' : 'Dub';
-  }
-};
-
+  // When toggle changes, update localStorage and refresh search
   toggleSwitch.addEventListener('change', function() {
     localStorage.setItem('toggleState', JSON.stringify(this.checked));
-
-    if (this.checked) {
-      toggleState.textContent = 'Sub';
-    } else {
-      toggleState.textContent = 'Dub';
-    }
-
+    toggleState.textContent = this.checked ? 'Sub' : 'Dub';
     searchForm.dispatchEvent(new Event('submit', { cancelable: true }));
   });
 
-  searchForm.addEventListener('submit', async (event) => {
-    event.preventDefault();
-    query = event.target.search.value;
-    pageNumber = 1;
-    await fetchAndDisplayData(query, pageNumber);
-  });
-
+  // Filter results by checking if the anime name contains "(dub)"
   function filterResults(results) {
     if (toggleSwitch.checked) {
-      return results.filter(result => !result.title.toLowerCase().includes('(dub)'));
+      return results.filter(result => !result.name.toLowerCase().includes('(dub)'));
     } else {
-      return results.filter(result => result.title.toLowerCase().includes('(dub)'));
+      return results.filter(result => result.name.toLowerCase().includes('(dub)'));
     }
   }
 
@@ -80,53 +70,37 @@ window.onload = function() {
       return;
     }
 
-    const primaryApiUrl = `https://consumet-six-mu.vercel.app/anime/gogoanime/${query}?page=${pageNumber}&limit=21`;
-    const fallbackUrl = `https://consumet-git-main-ashs-projects-b3e0f69e.vercel.app/gogoanime/${query}?page=${pageNumber}&limit=21`;
+    // New API endpoint for fetching anime details
+    const apiUrl = `https://ashanime-liart.vercel.app/api/v2/hianime/search?q=${encodeURIComponent(query)}&page=${pageNumber}`;
 
-    console.log(primaryApiUrl);
+    console.log(apiUrl);
     showLoadingSpinner();
 
     try {
-      const response = await fetch(primaryApiUrl);
-
+      const response = await fetch(apiUrl);
       if (!response.ok) {
-        throw new Error(`Error fetching data from primary API: ${response.status} ${response.statusText}`);
+        throw new Error(`Error fetching data from API: ${response.status} ${response.statusText}`);
       }
-
       const data = await response.json();
-      const filteredResults = filterResults(data.results.slice(0, 20));
+
+      // Use the new JSON structure:
+      // data.data.animes holds the anime list,
+      // and data.data.totalPages the total number of pages.
+      const animes = data.data.animes || [];
+      const filteredResults = filterResults(animes.slice(0, 20));
 
       displayImages(filteredResults);
-      updateNextPageButton(data.results.length);
-
-      return data.total_pages;
-    } catch (primaryApiError) {
-      console.error('Error fetching data from primary API:', primaryApiError.message);
-
-      console.log('Fetching data from fallback API...');
-      try {
-        const fallbackResponse = await fetch(fallbackUrl);
-
-        if (!fallbackResponse.ok) {
-          throw new Error(`Error fetching data from fallback API: ${fallbackResponse.status} ${fallbackResponse.statusText}`);
-        }
-
-        const fallbackData = await fallbackResponse.json();
-        const fallbackFilteredResults = filterResults(fallbackData.results.slice(0, 20));
-
-        displayImages(fallbackFilteredResults);
-        updateNextPageButton(fallbackData.results.length);
-
-        return fallbackData.total_pages;
-      } catch (fallbackApiError) {
-        console.error('Error fetching data from fallback API:', fallbackApiError.message);
-      }
+      updateNextPageButton(animes.length, data.data.totalPages);
+      return data.data.totalPages;
+    } catch (error) {
+      console.error('Error fetching data from API:', error.message);
     } finally {
       hideLoadingSpinner();
     }
   }
 
   const pagination = document.getElementById('pagination');
+  
   nextPageButton.addEventListener('click', async () => {
     pageNumber++;
     await fetchAndDisplayData(query, pageNumber);
@@ -137,23 +111,26 @@ window.onload = function() {
     await fetchAndDisplayData(query, pageNumber);
   });
 
-  function updateNextPageButton(resultsCount) {
-    nextPageButton.disabled = resultsCount <= 19;
+  // Determine if next page or previous page buttons should be enabled
+  function updateNextPageButton(resultsCount, totalPages) {
+    nextPageButton.disabled = pageNumber >= totalPages;
     prevPageButton.disabled = pageNumber <= 1;
   }
 
+  // Display anime images and names
   function displayImages(results) {
     searchResults.innerHTML = '';
 
     if (results.length > 0) {
       results.forEach((item) => {
-        const imgContainer = document.createElement('div'); 
+        const imgContainer = document.createElement('div');
         const img = document.createElement('img');
-        img.src = item.image;
-        img.alt = item.title;
-        img.title = item.title;
+        // Use poster and name as provided by the new API response
+        img.src = item.poster;
+        img.alt = item.name;
+        img.title = item.name;
         img.classList.add('search-result-image');
-        img.tabIndex = 0; 
+        img.tabIndex = 0;
         img.addEventListener('click', () => {
           sessionStorage.setItem('selectedAnime', JSON.stringify(item));
           window.location.href = `anime-details.html?animeId=${item.id}`;
@@ -165,13 +142,13 @@ window.onload = function() {
           }
         });
 
-        const name = document.createElement('span'); 
-        name.textContent = item.title;
+        const name = document.createElement('span');
+        name.textContent = item.name;
         name.classList.add('search-result-name');
-        imgContainer.appendChild(img); 
+        imgContainer.appendChild(img);
         imgContainer.appendChild(name);
 
-        searchResults.appendChild(imgContainer); 
+        searchResults.appendChild(imgContainer);
       });
 
       togglePaginationVisibility(true);
